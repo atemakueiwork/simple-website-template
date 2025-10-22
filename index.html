@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Atem Akuei — Personal Site</title>
+  <title>Resumé — Atem Akuei</title>
   <link rel="stylesheet" type="text/css" href="fancy.css" />
 </head>
 <body>
   <header>
-    <h1>Welcome to Atem Akuei's Site</h1>
+    <h1>Resumé</h1>
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -17,33 +17,83 @@
   </header>
 
   <main class="container">
-    <section>
-      <h2>Hi there 👋</h2>
-      <p>
-        I'm <strong>Atem Akuei</strong>, a student exploring <em>computer science</em> and cybersecurity while
-        building projects and helping teams ship solid work. This site is a small, creative hub to
-        showcase a few interests and share my resumé.
-      </p>
-      <p>
-        I enjoy solving problems with code, designing simple user experiences, and mentoring others.
-        My background spans <strong>IT support</strong>, audiovisual tech, and retail leadership—each
-        strengthening my ability to communicate clearly and stay calm under pressure.
-      </p>
-      <p>
-        You can learn more <a href="about.html">about me</a>, or see my <a href="resume.html">resumé</a>.
-        If you’re curious, scroll down to play a quick round of <em>Tic‑Tac‑Toe</em> built in plain JavaScript.
-      </p>
-      <p>
-        Thanks for stopping by! I’m keeping this site <strong>simple</strong> yet a bit <em>playful</em>—
-        clean typography, soft colors, and small interactive touches.
-      </p>
+    <section class="resume-section">
+      <h2>Contact</h2>
+      <div>
+        <p><strong>Name:</strong> Atem Akuei</p>
+        <p><strong>Email:</strong> <a href="mailto:atemakuei.work@gmail.com">atemakuei.work@gmail.com</a></p>
+        <p><strong>Phone:</strong> (816) 588-9829</p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/atem-akuei-0082181aa/" target="_blank" rel="noopener">linkedin.com/in/atem-akuei-0082181aa</a></p>
+        <p><strong>Location:</strong> Shawnee, KS 66216</p>
+      </div>
     </section>
 
-    <section id="game">
-      <h2>Tic‑Tac‑Toe</h2>
-      <div id="board" class="board" aria-label="Tic Tac Toe board"></div>
-      <div id="status" class="status" role="status" aria-live="polite">Player X's turn</div>
-      <button id="reset" class="button">Reset</button>
+    <section class="resume-section">
+      <h2>Education</h2>
+      <div>
+        <h3>Kansas State University — B.S. in Computer Science & Cybersecurity</h3>
+        <p><em>Manhattan, KS — Expected May 2028</em></p>
+      </div>
+      <div>
+        <h3>Rockhurst High School — High School Diploma</h3>
+        <p><em>Kansas City, MO — May 2023</em></p>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2>Work Experience</h2>
+      <div class="job">
+        <h3>Sales Specialist — Home Depot</h3>
+        <p><em>Shawnee, KS → Manhattan, KS — July 2024–Present</em></p>
+        <ul>
+          <li>Provided expert product guidance; increased flooring by 30% and millwork by 70%.</li>
+          <li>Trained and mentored 21 employees in 8 months across multiple departments.</li>
+          <li>Resolved customer issues promptly to boost satisfaction.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Information Technology Specialist — Mercy Health Academy</h3>
+        <p><em>Gladstone, MO — July 2019–June 2024</em></p>
+        <ul>
+          <li>Managed IT infrastructure with 99.9% uptime for students and faculty.</li>
+          <li>Configured and managed Active Directory for accounts and access control.</li>
+          <li>Reduced unauthorized access attempts by 25% via policy updates.</li>
+          <li>Installed and troubleshot Windows devices and network gear.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Lead Audiovisual Technician — Rockhurst High School</h3>
+        <p><em>Kansas City, MO — May 2020–Aug 2023</em></p>
+        <ul>
+          <li>Managed a $50,000 annual team budget and coordinated resources.</li>
+          <li>Facilitated communication among administration, faculty, and student teams.</li>
+          <li>Enabled a student‑led program, fostering leadership and technical skills.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2>Skills</h2>
+      <div class="columns">
+        <div>
+          <h3>Proficient</h3>
+          <ul>
+            <li>Windows OS, Microsoft Office, Google Workspace, Trello</li>
+            <li>Lua, Python, C++, JavaScript, HTML, Java, C#, Arduino</li>
+            <li>TypeScript, SQL, GitHub, VS Code, Supabase, PostgreSQL, Raspberry Pi</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Intermediate</h3>
+          <ul>
+            <li>Linux, System hardening, Permission Management</li>
+          </ul>
+          <h3>Beginner</h3>
+          <ul>
+            <li>Machine Learning</li>
+          </ul>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -52,73 +102,7 @@
   </footer>
 
   <script>
-    // Simple JS Tic‑Tac‑Toe (no external libs)
-    const boardEl = document.getElementById('board');
-    const statusEl = document.getElementById('status');
-    const resetBtn = document.getElementById('reset');
-    const yearEl = document.getElementById('year');
-    yearEl.textContent = new Date().getFullYear();
-
-    let board = Array(9).fill(null);
-    let player = 'X';
-    let gameOver = false;
-
-    function renderBoard(){
-      boardEl.innerHTML = '';
-      for(let i = 0; i < 9; i++){
-        const cell = document.createElement('button');
-        cell.className = 'cell';
-        cell.setAttribute('aria-label', 'Cell ' + (i+1));
-        cell.textContent = board[i] ? board[i] : '';
-        cell.addEventListener('click', () => handleMove(i));
-        boardEl.appendChild(cell);
-      }
-    }
-
-    function winningLines(){
-      return [
-        [0,1,2],[3,4,5],[6,7,8],
-        [0,3,6],[1,4,7],[2,5,8],
-        [0,4,8],[2,4,6]
-      ];
-    }
-
-    function checkWinner(){
-      for(const [a,b,c] of winningLines()){
-        if(board[a] && board[a] === board[b] && board[a] === board[c]){
-          return board[a];
-        }
-      }
-      if(board.every(x => x)) return 'Tie';
-      return null;
-    }
-
-    function handleMove(i){
-      if(gameOver || board[i]) return;
-      board[i] = player;
-      const result = checkWinner();
-      renderBoard();
-      if(result === 'X' || result === 'O'){
-        statusEl.textContent = `Player ${result} wins!`;
-        gameOver = true;
-      } else if(result === 'Tie'){
-        statusEl.textContent = 'It\'s a tie!';
-        gameOver = true;
-      } else {
-        player = player === 'X' ? 'O' : 'X';
-        statusEl.textContent = `Player ${player}\'s turn`;
-      }
-    }
-
-    resetBtn.addEventListener('click', () => {
-      board = Array(9).fill(null);
-      player = 'X';
-      gameOver = false;
-      statusEl.textContent = "Player X's turn";
-      renderBoard();
-    });
-
-    renderBoard();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
