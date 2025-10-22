@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resumé — Atem Akuei</title>
+  <link rel="stylesheet" type="text/css" href="fancy.css" />
+</head>
+<body>
+  <header>
+    <h1>Résumé</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="resume.html">Resumé</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="resume-section">
+      <h2>Contact</h2>
+      <div>
+        <p><strong>Name:</strong> Atem Akuei</p>
+        <p><strong>Email:</strong> <a href="mailto:atemakuei.work@gmail.com">atemakuei.work@gmail.com</a></p>
+        <p><strong>Phone:</strong> (816) 588-9829</p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/atem-akuei-0082181aa/" target="_blank" rel="noopener">linkedin.com/in/atem-akuei-0082181aa</a></p>
+        <p><strong>Location:</strong> Shawnee, KS 66216</p>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2>Education</h2>
+      <div>
+        <h3>Kansas State University — B.S. in Computer Science & Cybersecurity</h3>
+        <p><em>Manhattan, KS — Expected May 2028</em></p>
+      </div>
+      <div>
+        <h3>Rockhurst High School — High School Diploma</h3>
+        <p><em>Kansas City, MO — May 2023</em></p>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2>Work Experience</h2>
+      <div class="job">
+        <h3>Sales Specialist — Home Depot</h3>
+        <p><em>Shawnee, KS → Manhattan, KS — July 2024–Present</em></p>
+        <ul>
+          <li>Provided expert product guidance; increased flooring by 30% and millwork by 70%.</li>
+          <li>Trained and mentored 21 employees in 8 months across multiple departments.</li>
+          <li>Resolved customer issues promptly to boost satisfaction.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Information Technology Specialist — Mercy Health Academy</h3>
+        <p><em>Gladstone, MO — July 2019–June 2024</em></p>
+        <ul>
+          <li>Managed IT infrastructure with 99.9% uptime for students and faculty.</li>
+          <li>Configured and managed Active Directory for accounts and access control.</li>
+          <li>Reduced unauthorized access attempts by 25% via policy updates.</li>
+          <li>Installed and troubleshot Windows devices and network gear.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Lead Audiovisual Technician — Rockhurst High School</h3>
+        <p><em>Kansas City, MO — May 2020–Aug 2023</em></p>
+        <ul>
+          <li>Managed a $50,000 annual team budget and coordinated resources.</li>
+          <li>Facilitated communication among administration, faculty, and student teams.</li>
+          <li>Enabled a student‑led program, fostering leadership and technical skills.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2>Skills</h2>
+      <div class="columns">
+        <div>
+          <h3>Proficient</h3>
+          <ul>
+            <li>Windows OS, Microsoft Office, Google Workspace, Trello</li>
+            <li>Lua, Python, C++, JavaScript, HTML, Java, C#, Arduino</li>
+            <li>TypeScript, SQL, GitHub, VS Code, Supabase, PostgreSQL, Raspberry Pi</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Intermediate</h3>
+          <ul>
+            <li>Linux, System hardening, Permission Management</li>
+          </ul>
+          <h3>Beginner</h3>
+          <ul>
+            <li>Machine Learning</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>&copy; <span id="year"></span> Atem Akuei</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
