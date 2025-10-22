@@ -1,79 +1,124 @@
-<!doctype html>
-<html>
-  <head>
-    <!-- Page setup -->
-    <meta charset="utf-8">
-    <title>My title here</title>
-    <meta name="description" content="A brief description of your site for search engines">
-    <meta name="author" content="Information about the author here">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <link rel="icon" type="image/png" href="favicon.png">
-  
-    <!-- Stylesheets -->
-    <!-- Reset default styles and add support for google fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
-   
-    <!-- Custom styles -->
-    <link href="style.css" rel="stylesheet" type="text/css" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atem Akuei — Personal Site</title>
+  <link rel="stylesheet" type="text/css" href="fancy.css" />
+</head>
+<body>
+  <header>
+    <h1>Welcome to Atem Akuei's Site</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="resume.html">Resumé</a>
+    </nav>
+  </header>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>    
+  <main class="container">
+    <section>
+      <h2>Hi there 👋</h2>
+      <p>
+        I'm <strong>Atem Akuei</strong>, a student exploring <em>computer science</em> and cybersecurity while
+        building projects and helping teams ship solid work. This site is a small, creative hub to
+        showcase a few interests and share my résumé.
+      </p>
+      <p>
+        I enjoy solving problems with code, designing simple user experiences, and mentoring others.
+        My background spans <strong>IT support</strong>, audiovisual tech, and retail leadership—each
+        strengthening my ability to communicate clearly and stay calm under pressure.
+      </p>
+      <p>
+        You can learn more <a href="about.html">about me</a>, or see my <a href="resume.html">résumé</a>.
+        If you’re curious, scroll down to play a quick round of <em>Tic‑Tac‑Toe</em> built in plain JavaScript.
+      </p>
+      <p>
+        Thanks for stopping by! I’m keeping this site <strong>simple</strong> yet a bit <em>playful</em>—
+        clean typography, soft colors, and small interactive touches.
+      </p>
+    </section>
 
-    <!-- Want to add Bootstrap? -->
-    <!-- Visit: https://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
-    
-  </head>
-  
-  <body>
+    <section id="game">
+      <h2>Tic‑Tac‑Toe</h2>
+      <div id="board" class="board" aria-label="Tic Tac Toe board"></div>
+      <div id="status" class="status" role="status" aria-live="polite">Player X's turn</div>
+      <button id="reset" class="button">Reset</button>
+    </section>
+  </main>
 
-    <header id="header">
-      <img src="logo.jpg">
-      <h1>Simple Website</h1>
-      
-      <!-- Menu link fragment #id should match a div id. Example: <a href="#home"> links to <div id="home"></div>  -->
-      <ul class="main-menu">
-        <li><a href="#home">home</a></li>
-        <li><a href="#about">about</a></li>
-        <li><a href="#contact">contact</a></li>
-      </ul>                 
-    </header>
-   
-    <div id="container">
-      <div class="inner">
-        <div id="content"> 
-          
-          <div id="home" class="content-region hide">
-            <h2>Home</h2>
-            <p>
-              This is a simple website template published with Github Pages. <a href="https://github.com/cpl-makerlab/simple-website-template">Fork this repository</a> to create your own site!
-            </p>
-          </div>
-          
-          <div id="about" class="content-region hide">
-            <h2>About</h2>
-            <p>
-              Sed tempus urna et pharetra pharetra massa massa ultricies. Porttitor rhoncus dolor purus non enim praesent. Id aliquet risus feugiat in ante metus dictum. 
-            </p>
-          </div>
-          
-          <div id="contact" class="content-region hide">
-            <h2>Contact</h2>
-            <p>
-              Pellentesque nec nam aliquam sem et tortor consequat. Quisque sagittis purus sit amet volutpat consequat. Magna eget est lorem ipsum dolor. 
-            </p>
-          </div>
-          
-        </div>
-      </div>
-    </div>
+  <footer>
+    <small>&copy; <span id="year"></span> Atem Akuei</small>
+  </footer>
 
-    <footer>  
-      Footer region
-    </footer>
-    
-    <!-- Load additional JS scripts here -->
-    <script type="text/javascript" src="script.js"></script>
-    
-  </body>
+  <script>
+    // Simple JS Tic‑Tac‑Toe (no external libs)
+    const boardEl = document.getElementById('board');
+    const statusEl = document.getElementById('status');
+    const resetBtn = document.getElementById('reset');
+    const yearEl = document.getElementById('year');
+    yearEl.textContent = new Date().getFullYear();
+
+    let board = Array(9).fill(null);
+    let player = 'X';
+    let gameOver = false;
+
+    function renderBoard(){
+      boardEl.innerHTML = '';
+      for(let i = 0; i < 9; i++){
+        const cell = document.createElement('button');
+        cell.className = 'cell';
+        cell.setAttribute('aria-label', 'Cell ' + (i+1));
+        cell.textContent = board[i] ? board[i] : '';
+        cell.addEventListener('click', () => handleMove(i));
+        boardEl.appendChild(cell);
+      }
+    }
+
+    function winningLines(){
+      return [
+        [0,1,2],[3,4,5],[6,7,8],
+        [0,3,6],[1,4,7],[2,5,8],
+        [0,4,8],[2,4,6]
+      ];
+    }
+
+    function checkWinner(){
+      for(const [a,b,c] of winningLines()){
+        if(board[a] && board[a] === board[b] && board[a] === board[c]){
+          return board[a];
+        }
+      }
+      if(board.every(x => x)) return 'Tie';
+      return null;
+    }
+
+    function handleMove(i){
+      if(gameOver || board[i]) return;
+      board[i] = player;
+      const result = checkWinner();
+      renderBoard();
+      if(result === 'X' || result === 'O'){
+        statusEl.textContent = `Player ${result} wins!`;
+        gameOver = true;
+      } else if(result === 'Tie'){
+        statusEl.textContent = 'It\'s a tie!';
+        gameOver = true;
+      } else {
+        player = player === 'X' ? 'O' : 'X';
+        statusEl.textContent = `Player ${player}\'s turn`;
+      }
+    }
+
+    resetBtn.addEventListener('click', () => {
+      board = Array(9).fill(null);
+      player = 'X';
+      gameOver = false;
+      statusEl.textContent = "Player X's turn";
+      renderBoard();
+    });
+
+    renderBoard();
+  </script>
+</body>
 </html>
