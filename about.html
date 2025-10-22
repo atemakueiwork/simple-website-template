@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Atem Akuei</title>
+  <link rel="stylesheet" type="text/css" href="fancy.css" />
+</head>
+<body>
+  <header>
+    <h1>About</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="resume.html">Résumé</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Some Favorites</h2>
+      <ul>
+        <li><strong>Film:</strong> Spider‑Man: Into the Spider‑Verse</li>
+        <li><strong>Hobby:</strong> Volleyball and coding side projects</li>
+        <li><strong>Tooling:</strong> VS Code, GitHub, PostgreSQL</li>
+        <li><strong>Boards:</strong> Arduino & Raspberry Pi tinkering</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Favorite Site</h2>
+      <p>Check out my project hub on <a href="https://meepermad.github.io/" target="_blank" rel="noopener">GitHub Pages</a>.</p>
+    </section>
+
+    <section>
+      <h2>An Image I Like</h2>
+      <p>
+        <img src="https://i.pinimg.com/736x/c3/8e/e1/c38ee1438d38bc1e338ff8063e69a713.jpg" alt="Spider-Man" class="hero-image"/>
+      </p>
+    </section>
+
+    <section>
+      <h2>Embedded Video</h2>
+      <div class="video-wrapper">
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/mU6anWqZJcc"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>&copy; <span id="year"></span> Atem Akuei</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
